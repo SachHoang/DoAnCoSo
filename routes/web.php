@@ -21,8 +21,9 @@ use App\Http\Controllers\MovieController;
 */
 
 Route::get('/', [IndexController::class, 'home']) ->name('homepage');
+
 Route::get('/danh-muc', [IndexController::class, 'category']) ->name('category');
-Route::get('/the-loai', [IndexController::class, 'genre']) ;
+Route::get('/the-loai', [IndexController::class, 'genre']) ->name('genre');
 Route::get('/quoc-gia', [IndexController::class, 'country']) ->name('country');
 Route::get('/phim', [IndexController::class, 'movie']) ->name('movie');
 Route::get('/xem-phim', [IndexController::class, 'watch']) ->name('watch');
