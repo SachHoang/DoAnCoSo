@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                <a href="{{route('movie.index')}}" class="btn btn-primary">Liệt kê phim</a>
                 <div class="card-header">{{ __('Quản lý phim') }}</div>
 
                 <div class="card-body">
@@ -48,6 +49,10 @@
                             {!! Form::select('genre_id',$genre, isset($movie)? $movie->genre_id : '', ['class'=> 'form-control']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('Hot', 'Hot', []) !!}
+                            {!! Form::select('phim_hot',['1'=>'Có', '0'=> 'Không'], isset($movie)? $movie->phim_hot : '', ['class'=> 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('Image', 'Image', []) !!}
                             {!! Form::file('image',['class'=>'form-control-file']) !!}
                            @if(isset($movie))
@@ -61,50 +66,7 @@
                     @endif
                     {!! Form::close() !!} 
                 </div>
-            </div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Active/Inactive</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Mange</th>
-                  </tr>
-                </thead>
-                <tbody id ="sortable">
-                    @foreach ($list as $key => $cate)      
-                        <tr>
-                            <th scope="row">{{$key}}</th>
-                            <td>{{$cate->title}}</td>
-                            <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
-                            <td>{{$cate->description}}</td>
-                            <td>{{$cate->slug}}</td>
-                            <td>
-                                @if($cate->status)
-                                    Hiển thị
-                                @else
-                                    Không hiển thị
-                                @endif
-                                <td>{{$cate->category->title}}</td>
-                                <td>{{$cate->genre->title}}</td>
-                                <td>{{$cate->country->title}}</td>
-                            </td>
-                            <td>
-                                {!! Form::open(['method' => 'DELETE', 'route' => ['movie.destroy', $cate->id], 'onsubmit' => 'return confirm("Bạn chắc chắn muốn xóa?")']) !!}
-                                {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!}
-                                <a href="{{route('movie.edit', $cate->id)}}" class="btn btn-warning">Sửa</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-              </table>
+            </div>            
         </div>
     </div>
 </div>

@@ -12,11 +12,12 @@ use App\Models\Episode;
 class IndexController extends Controller
 {
     public function home(){
+        $phimhot = Movie::where("phim_hot",1)->where('status', 1)-> get();
         $category = Category::orderBy('id', 'DESC') -> where('status', 1)-> get();
         $genre = Genre::orderBy('id', 'DESC') -> get();
         $country = Country::orderBy('id', 'DESC') -> get();
         $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
-        return view('pages.home', compact('category','genre','country','category_home'));
+        return view('pages.home', compact('category','genre','country','category_home','phimhot'));
     }
     public function category($slug){
         $category = Category::orderBy('id', 'DESC') -> where('status', 1)-> get();
