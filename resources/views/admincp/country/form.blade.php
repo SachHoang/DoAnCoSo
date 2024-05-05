@@ -54,7 +54,7 @@
                     <th scope="col">Mange</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id ="sortable">
                     @foreach ($list as $key => $cate)      
                         <tr>
                             <th scope="row">{{$key}}</th>

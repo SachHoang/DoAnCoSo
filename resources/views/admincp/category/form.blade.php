@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+    html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -36,11 +43,12 @@
                             {!! Form::select('status', ['1'=>'Hiển thị', '0'=> 'Không'], isset($category)? $category->status : '', ['class'=> 'form-control']) !!}                        
                         </div>
                     @if(isset($category))
-                        {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
+                        {!! Form::submit('Cập nhật dữ liệu', ['class'=>'btn btn-success']) !!}                       
                     @else
-                        {!! Form::submit('Cập nhật dữ liệu', ['class'=>'btn btn-success']) !!}
+                        {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}  
                     @endif
                     {!! Form::close() !!} 
+                    
                 </div>
             </div>
             <table class="table">
@@ -54,7 +62,8 @@
                     <th scope="col">Mange</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id ="sortable">
+                    
                     @foreach ($list as $key => $cate)      
                         <tr>
                             <th scope="row">{{$key}}</th>
