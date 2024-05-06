@@ -90,6 +90,41 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
     <script src="//cdn.datatables.net/2.0.6/js/dataTables.min.js"></script>
     <script type="text/javascript">
+        $('.select-year').change(function(){
+            var year = $(this).find(':selected').val();
+            var id_phim = $(this).attr('id');
+            // alert(year);
+            // alert(id_phim);
+            $.ajax({
+                url:"{{url('/update-year-phim')}}",
+                method: "GET",
+                data:{year:year, id_phim:id_phim},
+                success:function(){
+                    alert('Thay đổi năm phim theo năm ' + year+' thành công');
+                }
+            });
+        })
+    </script>
+    {{-- <script type="text/javascript">
+        $('.select-year').change(function() {
+            var year = $(this).find(':selected').val();
+            var id_phim = $(this).attr('id');
+            alert(year);
+            alert(id_phim);
+            $.ajax({
+                url: "{{ url('/update-year-phim') }}",
+                method: "GET",
+                data: {
+                    year: year,
+                    id_phim: id_phim
+                },
+                success: function() {
+                    alert('Thay đổi phim năm' + year + 'thành công');
+                }
+            });
+        })
+    </script> --}}
+    <script type="text/javascript">
         let table = new DataTable('#tablephim');
         function ChangeToSlug()
             {

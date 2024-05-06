@@ -7,6 +7,8 @@ use App\Models\Movie;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
+ use Carbon\Carbon;  //format ngày tháng năm tốt mặc định có sẵn trên laravel
+
 class MovieController extends Controller
 {
     /**
@@ -18,6 +20,13 @@ class MovieController extends Controller
     {
         $list = Movie::with('category','genre','country')->orderBy('id','DESC')->get();
         return view('admincp.movie.index',compact('list'));
+    }
+
+    public function update_year(request $request){
+        $data = $request->all();
+        $movie = Movie::find($data['id_phim']);
+        $movie->year = $data['year'];
+        $movie->save();
     }
 
     /**
@@ -45,6 +54,7 @@ class MovieController extends Controller
        
         $movie = new Movie();
         $movie->title = $data['title'];
+        $movie->thoiluong = $data['thoiluong'];
         $movie->resolution = $data['resolution'];
         $movie->phude = $data['phude'];
         $movie->name_eng = $data['name_eng'];
@@ -55,6 +65,8 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
+        $movie->ngaytao = Carbon::now('Asia/Ho_Chi_Minh');
+        $movie->ngaycapnhat = Carbon::now('Asia/Ho_Chi_Minh');
 
         //them anh
         $get_image = $request->file('image');
@@ -110,6 +122,7 @@ class MovieController extends Controller
        
         $movie = Movie::find($id);
         $movie->title = $data['title'];
+        $movie->thoiluong = $data['thoiluong'];
         $movie->resolution = $data['resolution'];
         $movie->phude = $data['phude'];
         $movie->name_eng = $data['name_eng'];
@@ -120,6 +133,7 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
+        $movie->ngaycapnhat = Carbon::now('Asia/Ho_Chi_Minh');
 
         //them anh
         $get_image = $request->file('image');

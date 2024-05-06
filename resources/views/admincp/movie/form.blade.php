@@ -21,8 +21,12 @@
                     @endif
                     
                         <div class="form-group">
-                            {!! Form::label('title', 'Title', []) !!}
+                            {!! Form::label('title', 'Tên Phim', []) !!}
                             {!! Form::text('title', isset($movie)? $movie->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu' ]) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('thoiluong', 'Thời lượng phim', []) !!}
+                            {!! Form::text('thoiluong', isset($movie)? $movie->thoiluong : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu' ]) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Tên Tiếng Anh', 'Tên Tiếng Anh', []) !!}
