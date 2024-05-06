@@ -22,7 +22,11 @@
                     
                         <div class="form-group">
                             {!! Form::label('title', 'Title', []) !!}
-                            {!! Form::text('title', isset($movie)? $movie->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()' ]) !!}
+                            {!! Form::text('title', isset($movie)? $movie->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu' ]) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Tên Tiếng Anh', 'Tên Tiếng Anh', []) !!}
+                            {!! Form::text('name_eng', isset($movie)? $movie->name_eng : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()' ]) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', []) !!}
@@ -35,6 +39,10 @@
                         <div class="form-group">
                             {!! Form::label('Active', 'Active', []) !!}
                             {!! Form::select('status', ['1'=>'Hiển thị', '0'=> 'Không'], isset($movie)? $movie->status : '', ['class'=> 'form-control']) !!}                        
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('resolution', 'Định dạng', []) !!}
+                            {!! Form::select('resolution', ['0'=>'HD', '1'=> 'SD','2'=>'HDCam', '3'=> 'Cam', '4'=>'FullHD'], isset($movie)? $movie->resolution : '', ['class'=> 'form-control']) !!}                        
                         </div>
                         <div class="form-group">
                             {!! Form::label('Category', 'Category', []) !!}

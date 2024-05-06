@@ -10,16 +10,17 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Hot</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Active/Inactive</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Mange</th>
+                    <th scope="col">Tên phim</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Phim hot</th>
+                    <th scope="col">Định dạng</th>
+                    <!-- <th scope="col">Mô tả</th> -->
+                    <th scope="col">Đường dẫn</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Quốc gia</th>
+                    <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
                 <tbody id ="sortable">
@@ -27,6 +28,7 @@
                         <tr>
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate->title}}</td>
+                            <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                             <td>
                                 @if($cate->phim_hot == 0)
                                     Không
@@ -34,8 +36,20 @@
                                     Có
                                 @endif
                             </td>
-                            <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
-                            <td>{{$cate->description}}</td>
+                            <td>
+                                @if($cate->resolution == 0)
+                                    HD
+                                @elseif($cate->resolution == 1)
+                                    SD
+                                @elseif($cate->resolution == 2)
+                                    HDCam
+                                @elseif($cate->resolution == 3)
+                                    Cam
+                                @else
+                                    FullHD
+                                @endif
+                            </td>
+                            <!-- <td>{{$cate->description}}</td> -->
                             <td>{{$cate->slug}}</td>
                             <td>
                                 @if($cate->status)
