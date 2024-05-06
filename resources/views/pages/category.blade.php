@@ -37,7 +37,13 @@
                         @else
                            FullHD
                         @endif
-                        </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                        </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                           @if($mov->phude == 0)
+                              Vietsub
+                           @else
+                              Thuyết Minh
+                           @endif
+                        </span> 
                         <div class="icon_overlay"></div>
                         <div class="halim-post-title-box">
                            <div class="halim-post-title ">

@@ -53,7 +53,13 @@
                            @else
                               FullHD
                            @endif
-                         </span><span class="episode">Vietsub</span></li>
+                         </span><span class="episode">
+                           @if($movie->phude == 0)
+                              Vietsub
+                           @else
+                              Thuyết Minh
+                           @endif   
+                        </span></li>
                         
                          <li class="list-info-group-item"><span>Thời lượng</span> : 133 Phút</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : 
@@ -98,7 +104,13 @@
                      <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" title="{{$hot->title}}">
                            <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$hot->image)}}" alt="{{$hot->title}}" title="{{$hot->title}}"></figure>
-                           <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                           <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                              @if($hot->phude == 0)
+                                 Vietsub
+                              @else
+                                 Thuyết Minh
+                              @endif
+                           </span> 
                            <div class="icon_overlay"></div>
                            <div class="halim-post-title-box">
                               <div class="halim-post-title ">
@@ -116,7 +128,7 @@
              <script>
                 jQuery(document).ready(function($) {				
                 var owl = $('#halim_related_movies-2');
-                owl.owlCarousel({loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
+                owl.owlCarousel({loop: true,margin: 5,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:5},1000: {items: 5}}})});
              </script>
           </div>
        </section>
