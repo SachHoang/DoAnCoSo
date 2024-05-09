@@ -107,7 +107,7 @@
                         <a href="{{url('tag/'.$tag)}}">{{$tag}}</a>
                      @endforeach
                   @else
-                     {{$tag->title}}
+                     {{$movie->title}}
                   @endif
                    </article>
                 </div>
@@ -155,6 +155,7 @@
           </div>
        </section>
     </main>
-    <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4"></aside>
+     <!--sidebar-->
+   @include('pages.include.sidebar')
  </div>
  @endsection
