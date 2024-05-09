@@ -26,6 +26,7 @@
                     <th scope="col">Ngày tạo</th>
                     <th scope="col">Ngày cập nhật</th>
                     <th scope="col">Năm phim</th>
+                    <th scope="col">Top View</th>
                     <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
@@ -80,6 +81,11 @@
                                 <td>{{$cate->ngaycapnhat}}</td>
                                 <td>
                                     {!! Form::selectYear('year', 2000, 2024, isset($cate->year) ? $cate->year : '', ['class' => 'select-year', 'id' => $cate->id]) !!}
+                                </td>
+                                <td>
+                                    {!! Form::select('topview', ['0'=>'Ngày', '1'=> 'Tuần', '2'=>'Tháng'], isset($movie) ? $movie->topview : '', ['class'=> 
+                                    'select-topview', 'id' => $cate->id]) !!}                        
+
                                 </td>
                             
                             <td>
