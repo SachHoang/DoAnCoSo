@@ -41,6 +41,10 @@
                             {!! Form::textarea('description', isset($movie)? $movie->description : '', ['style'=>'resize:none','class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu', 'id' => 'description' ]) !!}                           
                         </div>
                         <div class="form-group">
+                            {!! Form::label('tags', 'Tags phim', []) !!}
+                            {!! Form::textarea('tags', isset($movie)? $movie->tags : '', ['style'=>'resize:none','class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu' ]) !!}                           
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('Active', 'Active', []) !!}
                             {!! Form::select('status', ['1'=>'Hiển thị', '0'=> 'Không'], isset($movie)? $movie->status : '', ['class'=> 'form-control']) !!}                        
                         </div>
