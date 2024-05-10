@@ -14,7 +14,7 @@
       <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
       <meta name="revisit-after" content="1 days" />
       <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-      <title>Phim hay 2021 - Xem phim hay nhất</title>
+      <title>Phim hay 2024 - Xem phim hay nhất</title>
       <meta name="description" content="Phim hay 2021 - Xem phim hay nhất, xem phim online miễn phí, phim hot , phim nhanh" />
       <link rel="canonical" href="">
       <link rel="next" href="" />
@@ -162,6 +162,18 @@
       <script type='text/javascript' src='{{asset('js/bootstrap.min.js?ver=5.7.2')}}' id='bootstrap-js'></script>
       <script type='text/javascript' src='{{asset('js/owl.carousel.min.js?ver=5.7.2')}}' id='carousel-js'></script>
       <script type='text/javascript' src='{{asset('js/halimtheme-core.min.js?ver=1626273138')}}' id='halim-init-js'></script>
+      {{-- comment facebook --}}
+      <div id="fb-root"></div>
+
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0" nonce="wDeqYWxU"></script>
+      <script type="text/javascript">
+         $(".watch_trailer").click(function(e){
+            e.preventDefault();
+            var aid = $(this).attr("href");
+            $('html,body').animate({scrollTop: $(aid).offset().top}, 'slow');
+
+         });
+      </script>
       <script type="text/javascript">
          $(document).ready(function(){
             // lay ra top view ngay phim

@@ -29,13 +29,17 @@
                 </div>
                 <div class="movie_info col-xs-12">
                    <div class="movie-poster col-md-3">
-                      <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}">
+                      <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="{{$movie->title}}">
+                      @if($movie->resolution != 5)
                       <div class="bwa-content">
                          <div class="loader"></div>
                          <a href="{{route('watch')}}" class="bwac-btn">
                          <i class="fa fa-play"></i>
                          </a>
                       </div>
+                      @else
+                      <a href="#watch_trailer" style="display: block" class="btn btn-primary watch_trailer">Xem Trailer</a>
+                      @endif
                    </div>
                    <div class="film-poster col-md-9">
                       <h1 class="movie-title title-1" style="display:block;line-height:35px;margin-bottom: -14px;color: #ffed4d;text-transform: uppercase;font-size: 18px;">{{$movie->title}}</h1>
@@ -120,7 +124,7 @@
              </div>
              <div class="entry-content htmlwrap clearfix">
                 <div class="video-item halim-entry-box">
-                   <article id="post-38424" class="item-content">
+                   <article id="watch_trailer" class="item-content">
                   @if($movie->tags != NULL)
                      @php
                         $tags = array();
@@ -136,6 +140,23 @@
                    </article>
                 </div>
              </div>
+
+             <!--Comment phim-->
+             <div class="section-bar clearfix">
+               <h2 class="section-title"><span style="color:#ffed4d">Comments phim</span></h2>
+            </div>
+            <div class="entry-content htmlwrap clearfix">
+               @php
+                  $current_url = Request::url();
+                  
+               @endphp
+               <div class="video-item halim-entry-box">
+
+                  <article id="watch_trailer" class="item-content">
+                     <div class="fb-comments" data-href="{{$current_url}}" data-width="100%" data-numposts="5"></div>
+                  </article>
+               </div>
+            </div>
              
        </section>
        <section class="related-movies">
