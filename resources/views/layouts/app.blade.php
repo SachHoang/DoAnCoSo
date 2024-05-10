@@ -100,7 +100,23 @@
                 method: "GET",
                 data:{year:year, id_phim:id_phim},
                 success:function(){
-                    alert('Thay đổi năm phim theo năm ' + year+' thành công');
+                    alert('Thay đổi năm phim theo ' + year+' thành công');
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        $('.select-season').change(function(){
+            var season = $(this).find(':selected').val();
+            var id_phim = $(this).attr('id');
+            // alert(season);
+            // alert(id_phim);
+            $.ajax({
+                url:"{{url('/update-season-phim')}}",
+                method: "GET",
+                data:{season:season, id_phim:id_phim},
+                success:function(){
+                    alert('Thay đổi phim season ' + season+' thành công');
                 }
             });
         })
@@ -129,6 +145,8 @@
             });
         })
     </script>
+    
+    </script>
     {{-- <script type="text/javascript">
         $('.select-year').change(function() {
             var year = $(this).find(':selected').val();
@@ -150,6 +168,9 @@
     </script> --}}
     <script type="text/javascript">
         let table = new DataTable('#tablephim');
+        // $(document).ready(function() {
+        //     $('#tabphim').DataTable();
+        // });
         function ChangeToSlug()
             {
         

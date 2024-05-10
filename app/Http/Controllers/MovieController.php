@@ -22,10 +22,17 @@ class MovieController extends Controller
         return view('admincp.movie.index',compact('list'));
     }
 
+    
     public function update_year(request $request){
         $data = $request->all();
         $movie = Movie::find($data['id_phim']);
         $movie->year = $data['year'];
+        $movie->save();
+    }
+    public function update_season(request $request){
+        $data = $request->all();
+        $movie = Movie::find($data['id_phim']);
+        $movie->season = $data['season'];
         $movie->save();
     }
     public function update_topview(request $request){
