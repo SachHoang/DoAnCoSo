@@ -42,18 +42,23 @@
                       <h2 class="movie-title title-2" style="font-size: 12px;">{{$movie->name_eng}}</h2>
                       <ul class="list-info-group">
                          <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">
-                           @if($movie->resolution == 0)
+                         @if($movie->resolution == 0)
                            HD
-                           @elseif($movie->resolution == 1)
-                              SD
-                           @elseif($movie->resolution == 2)
-                              HDCam
-                           @elseif($movie->resolution == 3)
-                              Cam
-                           @else
-                              FullHD
-                           @endif
-                         </span><span class="episode">
+                        @elseif($movie->resolution == 1)
+                           SD
+                        @elseif($movie->resolution == 2)
+                           HDCam
+                        @elseif($movie->resolution == 3)
+                           Cam
+                        @elseif($movie->resolution == 4)
+                           FullHD
+                        @else
+                           Trailer
+                        @endif
+
+                         </span>
+                         @if($movie->resolution != 5)
+                         <span class="episode">
                          @if($movie->phude == 0)
                            Vietsub
                            
@@ -61,7 +66,9 @@
                            Thuyết Minh
                           
                         @endif
-                        </span></li>
+                        </span>
+                        @endif
+                     </li>
                         @if($movie->season != 0)
                         <li class="list-info-group-item"><span>Phần</span> : {{$movie->season}}</li>
                         @endif
@@ -95,7 +102,19 @@
                    </article>
                 </div>
              </div>
-
+             <!--Trailer phim-->
+             <div class="section-bar clearfix">
+                <h2 class="section-title"><span style="color:#ffed4d">Trailer phim</span></h2>
+             </div>
+             <div class="entry-content htmlwrap clearfix">
+                <div class="video-item halim-entry-box">
+                   <article id="post-38424" class="item-content">
+                   <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{$movie->trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   </article>
+                </div>
+             </div>
+          </div>
+            <!--Tags phim-->
              <div class="section-bar clearfix">
                 <h2 class="section-title"><span style="color:#ffed4d">Tags phim</span></h2>
              </div>
@@ -117,7 +136,7 @@
                    </article>
                 </div>
              </div>
-          </div>
+             
        </section>
        <section class="related-movies">
           <div id="halim_related_movies-2xx" class="wrap-slider">

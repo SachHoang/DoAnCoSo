@@ -28,15 +28,17 @@
                         <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
                         <span class="status">
                         @if($mov->resolution == 0)
-                        HD
+                           HD
                         @elseif($mov->resolution == 1)
                            SD
                         @elseif($mov->resolution == 2)
                            HDCam
                         @elseif($mov->resolution == 3)
                            Cam
-                        @else
+                        @elseif($mov->resolution == 4)
                            FullHD
+                        @else
+                           Trailer
                         @endif
                         </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                         @if($mov->phude == 0)

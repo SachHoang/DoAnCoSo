@@ -25,8 +25,10 @@
                         HDCam
                      @elseif($hot->resolution == 3)
                         Cam
-                     @else
+                     @elseif($hot->resolution == 4)
                         FullHD
+                     @else
+                        Trailer
                      @endif
                   </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                      @if($hot->phude == 0)
@@ -107,7 +109,7 @@
                    <a class="halim-thumb" href="{{route('movie',$mov->slug)}}" title="{{$mov->title}}">
                       <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
                       <span class="status">
-                         @if($mov->resolution == 0)
+                        @if($mov->resolution == 0)
                            HD
                         @elseif($mov->resolution == 1)
                            SD
@@ -115,8 +117,10 @@
                            HDCam
                         @elseif($mov->resolution == 3)
                            Cam
-                        @else
+                        @elseif($mov->resolution == 4)
                            FullHD
+                        @else
+                           Trailer
                         @endif
                      </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                         @if($mov->phude == 0)
