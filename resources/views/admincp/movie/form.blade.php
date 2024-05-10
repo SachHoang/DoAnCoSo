@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('phude', 'Phụ đề', []) !!}
-                            {!! Form::select('phude', ['0'=>'Vietsub', '1'=> 'Thuyết Minh'], isset($movie)? $movie->resolution : '', ['class'=> 'form-control']) !!}                        
+                            {!! Form::select('phude', ['0'=>'Vietsub', '1'=> 'Thuyết Minh'], isset($movie)? $movie->phude : '', ['class'=> 'form-control']) !!}                        
                         </div>
                         <div class="form-group">
                             {!! Form::label('Category', 'Category', []) !!}

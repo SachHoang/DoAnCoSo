@@ -31,8 +31,14 @@
                   </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                      @if($hot->phude == 0)
                            Vietsub
+                              @if($hot->season != 0)
+                                 - Season {{$hot->season}}
+                              @endif
                         @else
                            Thuyết Minh
+                              @if($hot->season != 0)
+                                 - Season {{$hot->season}}
+                              @endif
                         @endif
                   
                   </span> 
@@ -115,8 +121,14 @@
                      </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                         @if($mov->phude == 0)
                            Vietsub
+                              @if($mov->season != 0)
+                                 - Season {{$mov->season}}
+                              @endif
                         @else
                            Thuyết Minh
+                           @if($mov->season != 0)
+                                 - Season {{$mov->season}}
+                              @endif
                         @endif
                      
                      </span> 
