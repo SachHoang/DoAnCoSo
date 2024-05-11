@@ -79,7 +79,10 @@
                        
                          <li class="list-info-group-item"><span>Thời lượng</span> : {{$movie->thoiluong}}</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : 
-                           <a href="{{route('genre',[$movie->genre->slug])}}" rel="category tag">{{$movie->genre->title}}</a> 
+                         @foreach($movie->movie_genre as $gen)
+                         
+                           <a href="{{route('genre',[$gen->slug])}}" rel="category tag">{{$gen->title}}</a> 
+                           @endforeach
                          </li>
                          <li class="list-info-group-item"><span>Danh mục phim</span> : 
                            <a href="{{route('category',[$movie->category->slug])}}" rel="category tag">{{$movie->category->title}}</a> 

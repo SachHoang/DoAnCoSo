@@ -113,7 +113,7 @@ class IndexController extends Controller
         $country = Country::orderBy('id', 'DESC')->get();
         $phimhot_sidebar = Movie::where('phim_hot', 1)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(6)->get();
         $phimhot_trailer = Movie::where('resolution', 5)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(3)->get();
-        $movie = Movie::with('category', 'genre', 'country')->where('slug', $slug)->where('status', 1)->first();
+        $movie = Movie::with('category', 'genre', 'country','movie_genre')->where('slug', $slug)->where('status', 1)->first();
 
         $related = Movie::with('category', 'genre', 'country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug', [$slug])->get();
 

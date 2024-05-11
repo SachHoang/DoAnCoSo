@@ -7,6 +7,7 @@ use App\Models\Movie;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Movie_Genre;
 use Carbon\Carbon;  //format ngày tháng năm tốt mặc định có sẵn trên laravel
 use Storage;
 use File;
@@ -278,6 +279,7 @@ class MovieController extends Controller
             unlink('uploads/movie/'.$movie->image);
             
         }
+        Movie_Genre::whereIn('movie_id', [$movie->id])->delete();
         $movie->delete();
             return redirect()->back();
     }
