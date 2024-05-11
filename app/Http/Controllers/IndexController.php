@@ -8,6 +8,7 @@ use App\Models\Genre;
 use App\Models\Country;
 use App\Models\Movie;
 use App\Models\Episode;
+use App\Models\Movie_Genre;
 use DB;
 
 class IndexController extends Controller
@@ -85,7 +86,13 @@ class IndexController extends Controller
         $phimhot_sidebar = Movie::where('phim_hot', 1)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(6)->get();
         $phimhot_trailer = Movie::where('resolution', 5)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(3)->get();
         $genre_slug = Genre::where('slug', $slug)->first();
-        $movie = Movie::where('genre_id', $genre_slug->id)->orderBy('ngaycapnhat', 'DESC')->paginate(40);
+        //nhieu the loai
+        $movie_genre =Movie_Genre::where('genre_id',$genre_slug->id)->get();
+        $many_genre = [];
+        foreach($movie_genre as $key => $movi){
+            $many_genre[] = $movi->movie_id;
+        }
+        $movie = Movie::whereIn('id', $many_genre)->orderBy('ngaycapnhat', 'DESC')->paginate(40);
         return view('pages.genre', compact('category', 'genre', 'country', 'genre_slug', 'movie', 'phimhot_sidebar', 'phimhot_trailer'));
     }
     public function country($slug)

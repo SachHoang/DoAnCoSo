@@ -72,7 +72,11 @@
                             {!! Form::label('Genre', 'Genre', []) !!}
                             {{-- {!! Form::select('genre_id',$genre, isset($movie)? $movie->genre_id : '', ['class'=> 'form-control']) !!} --}}
                             @foreach($list_genre as $key => $gen)
-                                {!! Form::checkbox('genre[]', $gen->id, $movie->genre_id == $gen->id ? 'checked' : '') !!}
+                                @if(isset($movie))
+                                {!! Form::checkbox('genre[]', $gen->id, isset($movie_genre) && $movie_genre->contains($gen->id) ? true : false) !!}
+                                @else
+                                {!! Form::checkbox('genre[]', $gen->id, '') !!}
+                                @endif
                                 {!! Form::label('genre', $gen->title ) !!}
                             @endforeach
                         </div>
@@ -87,12 +91,12 @@
                                 <img width="20%" src="{{asset('uploads/movie/'.$movie->image)}}">
                            @endif
                         </div>
-                    @if(!isset($movie))
-                        {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
-                    @else
-                        {!! Form::submit('Cập nhật dữ liệu', ['class'=>'btn btn-success']) !!}
-                    @endif
-                    {!! Form::close() !!} 
+                        @if(!isset($movie))
+                            {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
+                        @else
+                            {!! Form::submit('Cập nhật dữ liệu', ['class'=>'btn btn-success']) !!}
+                        @endif
+                        {!! Form::close() !!} 
                 </div>
             </div>            
         </div>

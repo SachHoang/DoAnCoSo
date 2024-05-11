@@ -77,26 +77,32 @@
                                     Không hiển thị
                                 @endif
                             </td>
-                                <td>{{$cate->category->title}}</td>
-                                <td>{{$cate->genre->title}}</td>
-                                <td>{{$cate->country->title}}</td>
-                                <td>{{$cate->ngaytao}}</td>
-                                <td>{{$cate->ngaycapnhat}}</td>
-                                <td>
-                                   
-                                    {!! Form::selectYear('year', 2000, 2024, isset($cate->year) ? $cate->year : '', ['class' => 'select-year', 'id' => $cate->id]) !!}
-                                    </form>
-                                </td>
-                                <td>
-                                    {!! Form::selectRange('season', 0, 20, isset($cate->season) ? $cate->season : '', ['class' => 'select-season', 'id' => $cate->id]) !!}
-                                    </form>
-                                </td>
-                                <td>
-                                    {!! Form::select('topview', ['0'=>'Ngày', '1'=> 'Tuần', '2'=>'Tháng'], isset($cate->topview) ? $cate->topview : '', ['class'=> 
-                                    'select-topview', 'id' => $cate->id]) !!}                        
-
-                                </td>
+                            <td>{{$cate->category->title}}</td>
                             
+                            <td>
+                            @foreach($cate->movie_genre as $gen)
+                            {{$gen->title}}
+                            @endforeach
+                            </td>
+                            
+                            <td>{{$cate->country->title}}</td>
+                            <td>{{$cate->ngaytao}}</td>
+                            <td>{{$cate->ngaycapnhat}}</td>
+                            <td>
+                                
+                                {!! Form::selectYear('year', 2000, 2024, isset($cate->year) ? $cate->year : '', ['class' => 'select-year', 'id' => $cate->id]) !!}
+                                </form>
+                            </td>
+                            <td>
+                                {!! Form::selectRange('season', 0, 20, isset($cate->season) ? $cate->season : '', ['class' => 'select-season', 'id' => $cate->id]) !!}
+                                </form>
+                            </td>
+                            <td>
+                                {!! Form::select('topview', ['0'=>'Ngày', '1'=> 'Tuần', '2'=>'Tháng'], isset($cate->topview) ? $cate->topview : '', ['class'=> 
+                                'select-topview', 'id' => $cate->id]) !!}                        
+
+                            </td>
+                        
                             <td>
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['movie.destroy', $cate->id], 'onsubmit' => 'return confirm("Bạn chắc chắn muốn xóa?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}

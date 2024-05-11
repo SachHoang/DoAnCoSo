@@ -107,6 +107,7 @@
                 </div>
              </div>
              <!--Trailer phim-->
+            
              <div class="section-bar clearfix">
                 <h2 class="section-title"><span style="color:#ffed4d">Trailer phim</span></h2>
              </div>
