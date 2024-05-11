@@ -7,7 +7,10 @@ use App\Models\Movie;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
- use Carbon\Carbon;  //format ngày tháng năm tốt mặc định có sẵn trên laravel
+use Carbon\Carbon;  //format ngày tháng năm tốt mặc định có sẵn trên laravel
+use Storage;
+use File;
+
 
 class MovieController extends Controller
 {
@@ -19,6 +22,11 @@ class MovieController extends Controller
     public function index()
     {
         $list = Movie::with('category','genre','country')->orderBy('id','DESC')->get();
+
+        $path = public_path()."/json/";
+        if(!is_dir($path)) { mkdir($path, 0777, true); }
+        File::put($path.'movies.json', json_encode($list));
+
         return view('admincp.movie.index',compact('list'));
     }
 

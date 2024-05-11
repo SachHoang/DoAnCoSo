@@ -50,15 +50,13 @@
                <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                   <div class="header-nav">
                      <div class="col-xs-12">
-                        <form id="search-form-pc" name="halimForm" role="search" action="" method="GET">
-                           <div class="form-group">
+                        <form action="{{route('tim-kiem')}}" method="GET">
                               <div class="input-group col-xs-12">
-                                 <input id="search" type="text" name="s" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" required>
-                                 <i class="animate-spin hl-spin4 hidden"></i>
+                                 <input id="timkiem" type="text" name="search" class="form-control" placeholder="Tìm kiếm..." autocomplete="off">
+                                 <button class="btn btn-primary">Tìm Kiếm</button>
                               </div>
-                           </div>
                         </form>
-                        <ul class="ui-autocomplete ajax-results hidden"></ul>
+                        <ul class="list-group" id="result" style="display: none;"></ul>
                      </div>
                   </div>
                </div>
@@ -162,6 +160,36 @@
       <script type='text/javascript' src='{{asset('js/bootstrap.min.js?ver=5.7.2')}}' id='bootstrap-js'></script>
       <script type='text/javascript' src='{{asset('js/owl.carousel.min.js?ver=5.7.2')}}' id='carousel-js'></script>
       <script type='text/javascript' src='{{asset('js/halimtheme-core.min.js?ver=1626273138')}}' id='halim-init-js'></script>
+      
+      {{-- Tìm Kiếm --}}
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $('#timkiem').keyup(function(){
+               $('#result').html('');
+               var search = $('#timkiem').val();
+               if(search != ''){
+                  var expression = new RegExp(search, "i");
+                  $.getJSON('/json/movies.json', function(data){
+                     $.each(data, function(key, value){
+                        if(value.title.search(expression) != -1 || value.description.search(expression) != -1){
+                           $('#result').css('display', 'inherit');
+                           $('#result').append('<li style="cursor:pointer; display: flex; max-height: 200px;" class="list-group-item link-class"><img src="uploads/movie/'+value.image+'" width="100" class="" /><div style="flex-direction: column; margin-left: 2px;"><h4 width="100%">'+value.title+'</h4><span style="display: -webkit-box; max-height: 8.2rem; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal; -webkit-line-clamp: 5; line-height: 1.6rem;" class="text-muted">| '+value.description+'</span></div></li>');
+                        }
+                     });
+                  });
+               }else{
+                  $('#result').css('display', 'none');
+               }
+            })
+
+            $('#result').on('click', 'li', function(){
+               var click_text = $(this).text().split('|');
+               $('#timkiem').val($.trim(click_text[0]));
+               $('#result').html('');
+            });
+         })
+      </script>
+
       {{-- comment facebook --}}
       <div id="fb-root"></div>
 
