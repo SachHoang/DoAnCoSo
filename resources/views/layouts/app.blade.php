@@ -89,6 +89,22 @@
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
     <script src="//cdn.datatables.net/2.0.6/js/dataTables.min.js"></script>
+
+    {{-- script hien thi tap phim --}}
+    <script type="text/javascript">
+        $('.select-movie').change(function(){
+            var id = $(this).val();
+            $.ajax({
+                url:"{{route('select-movie')}}",
+                method: "GET",
+                data:{id:id},
+                success:function(data){
+                    $('#episode').html(data);
+                }
+            });
+        })
+    </script>
+    
     <script type="text/javascript">
         $('.select-year').change(function(){
             var year = $(this).find(':selected').val();
@@ -213,5 +229,7 @@
           
         } );
     </script>
+
+    
 </body>
 </html>

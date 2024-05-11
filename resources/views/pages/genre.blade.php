@@ -44,13 +44,15 @@
                         @if($mov->phude == 0)
                            Vietsub
                               @if($mov->season != 0)
-                                 - Season {{$mov->season}}
+                              Season {{$mov->season}}
                               @endif
+                           Tập {{$mov->sotap}}
                         @else
                            Thuyết Minh
-                           @if($mov->season != 0)
-                                 - Season {{$mov->season}}
+                              @if($mov->season != 0)
+                              Season {{$mov->season}}
                               @endif
+                           Tập {{$mov->sotap}}
                         @endif
                         </span> 
                         <div class="icon_overlay"></div>

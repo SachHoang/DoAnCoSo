@@ -11,15 +11,13 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tên phim</th>
-                    <th scope="col">Tags</th>
+                    <th scope="col">Số Tập</th>
                     <th scope="col">Thời lượng phim</th>
                     <th scope="col">Hình ảnh</th>
                     <th scope="col">Phim hot</th>
                     <th scope="col">Định dạng</th>
                     <th scope="col">Phụ đề</th>
-                    <!-- <th scope="col">Mô tả</th> -->
-                    <th scope="col">Đường dẫn</th>
-                    <th scope="col">Trạng thái</th>
+                    <!-- <th scope="col">Mô tả</th> -->                                      
                     <th scope="col">Danh mục</th>
                     <th scope="col">Thể loại</th>
                     <th scope="col">Quốc gia</th>
@@ -28,6 +26,9 @@
                     <th scope="col">Năm phim</th>
                     <th scope="col">Season</th>
                     <th scope="col">Top View</th>
+                    <th scope="col">Đường dẫn</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
@@ -36,7 +37,7 @@
                         <tr>
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate->title}}</td>
-                            <td>{{$cate->tags}}</td>
+                            <td>{{$cate->sotap}}</td>
                             <td>{{$cate->thoiluong}}</td>
                             <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                             <td>
@@ -68,20 +69,12 @@
                                     Thuyết Minh
                                 @endif
                             </td>
-                            <!-- <td>{{$cate->description}}</td> -->
-                            <td>{{$cate->slug}}</td>
-                            <td>
-                                @if($cate->status)
-                                    Hiển thị
-                                @else
-                                    Không hiển thị
-                                @endif
-                            </td>
+                            <!-- <td>{{$cate->description}}</td> -->                                                      
                             <td>{{$cate->category->title}}</td>
                             
                             <td>
                             @foreach($cate->movie_genre as $gen)
-                            {{$gen->title}}
+                                <span class="badge text-bg-dark">{{$gen->title}}</span>
                             @endforeach
                             </td>
                             
@@ -101,6 +94,15 @@
                                 {!! Form::select('topview', ['0'=>'Ngày', '1'=> 'Tuần', '2'=>'Tháng'], isset($cate->topview) ? $cate->topview : '', ['class'=> 
                                 'select-topview', 'id' => $cate->id]) !!}                        
 
+                            </td>
+                            <td>{{$cate->slug}}</td>
+                            <td>{{$cate->tags}}</td>
+                            <td>
+                                @if($cate->status)
+                                    Hiển thị
+                                @else
+                                    Không hiển thị
+                                @endif
                             </td>
                         
                             <td>

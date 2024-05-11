@@ -151,6 +151,7 @@ class MovieController extends Controller
         $movie = new Movie();
         $movie->title = $data['title'];
         $movie->trailer = $data['trailer'];
+        $movie->sotap = $data['sotap'];
         $movie->tags = $data['tags'];
         $movie->thoiluong = $data['thoiluong'];
         $movie->resolution = $data['resolution'];
@@ -230,6 +231,7 @@ class MovieController extends Controller
         $movie->title = $data['title'];
         $movie->tags = $data['tags'];
         $movie->trailer = $data['trailer'];
+        $movie->sotap = $data['sotap'];
         $movie->thoiluong = $data['thoiluong'];
         $movie->resolution = $data['resolution'];
         $movie->phude = $data['phude'];

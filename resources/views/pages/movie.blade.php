@@ -5,8 +5,13 @@
        <div class="panel-heading">
           <div class="row">
              <div class="col-xs-6">
-                <div class="yoast_breadcrumb hidden-xs"><span><span><a href="{{route('category',[$movie->category->slug])}}">{{$movie->category->title}}</a> » <span><a href="{{route('country',[$movie->country->slug])}}">{{$movie->country->title}}</a> 
-                » <span class="breadcrumb_last" aria-current="page">{{$movie->title}}</span></span></span></span></div>
+                <div class="yoast_breadcrumb hidden-xs"><span><span><a href="{{route('category',[$movie->category->slug])}}">{{$movie->category->title}}</a> » 
+                  <span>
+                     <a href="{{route('country',[$movie->country->slug])}}">{{$movie->country->title}}</a> » 
+                     @foreach($movie->movie_genre as $gen)
+                     <a href="{{route('genre',[$gen->slug])}}">{{$gen->title}}</a> » 
+                     @endforeach
+                  <span class="breadcrumb_last" aria-current="page">{{$movie->title}}</span></span></span></span></div>
              </div>
           </div>
        </div>
@@ -77,7 +82,8 @@
                         <li class="list-info-group-item"><span>Phần</span> : {{$movie->season}}</li>
                         @endif
                        
-                         <li class="list-info-group-item"><span>Thời lượng</span> : {{$movie->thoiluong}}</li>
+                        <li class="list-info-group-item"><span>Tập Phim</span> : {{$movie->sotap}}/{{$movie->sotap}} - Hoàn Thành</li> 
+                        <li class="list-info-group-item"><span>Thời lượng</span> : {{$movie->thoiluong}}</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : 
                          @foreach($movie->movie_genre as $gen)
                          
