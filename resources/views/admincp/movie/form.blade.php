@@ -70,7 +70,11 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('Genre', 'Genre', []) !!}
-                            {!! Form::select('genre_id',$genre, isset($movie)? $movie->genre_id : '', ['class'=> 'form-control']) !!}
+                            {{-- {!! Form::select('genre_id',$genre, isset($movie)? $movie->genre_id : '', ['class'=> 'form-control']) !!} --}}
+                            @foreach($list_genre as $key => $gen)
+                                {!! Form::checkbox('genre[]', $gen->id, $movie->genre_id == $gen->id ? 'checked' : '') !!}
+                                {!! Form::label('genre', $gen->title ) !!}
+                            @endforeach
                         </div>
                         <div class="form-group">
                             {!! Form::label('Hot', 'Hot', []) !!}

@@ -133,7 +133,8 @@ class MovieController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $country = Country::pluck('title','id');
-        return view('admincp.movie.form',compact('genre','country','category'));
+        $list_genre = Genre::all();
+        return view('admincp.movie.form',compact('genre','country','category','list_genre'));
     }
 
     /**
@@ -159,10 +160,15 @@ class MovieController extends Controller
         $movie->description = $data['description'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
-        $movie->genre_id = $data['genre_id'];
+        
         $movie->country_id = $data['country_id'];
         $movie->ngaytao = Carbon::now('Asia/Ho_Chi_Minh');
         $movie->ngaycapnhat = Carbon::now('Asia/Ho_Chi_Minh');
+        foreach($data['genre'] as $key => $gen){
+            $movie->genre_id = $gen[0];
+        }
+        $movie->genre_id = $data['genre_id'];
+
 
         //them anh
         $get_image = $request->file('image');
@@ -200,9 +206,9 @@ class MovieController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $country = Country::pluck('title','id');
-
+        $list_genre = Genre::all();
         $movie = Movie::find($id);
-        return view('admincp.movie.form',compact('genre','country','category','movie'));
+        return view('admincp.movie.form',compact('genre','country','category','movie','list_genre'));
     }
 
     /**
@@ -215,40 +221,40 @@ class MovieController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-       
-        $movie = Movie::find($id);
-        $movie->title = $data['title'];
-        $movie->tags = $data['tags'];
-        $movie->trailer = $data['trailer'];
-        $movie->thoiluong = $data['thoiluong'];
-        $movie->resolution = $data['resolution'];
-        $movie->phude = $data['phude'];
-        $movie->name_eng = $data['name_eng'];
-        $movie->phim_hot = $data['phim_hot'];
-        $movie->slug = $data['slug'];
-        $movie->description = $data['description'];
-        $movie->status = $data['status'];
-        $movie->category_id = $data['category_id'];
-        $movie->genre_id = $data['genre_id'];
-        $movie->country_id = $data['country_id'];
-        $movie->ngaycapnhat = Carbon::now('Asia/Ho_Chi_Minh');
+        return response()->json($data['genre']);
+        // $movie = Movie::find($id);
+        // $movie->title = $data['title'];
+        // $movie->tags = $data['tags'];
+        // $movie->trailer = $data['trailer'];
+        // $movie->thoiluong = $data['thoiluong'];
+        // $movie->resolution = $data['resolution'];
+        // $movie->phude = $data['phude'];
+        // $movie->name_eng = $data['name_eng'];
+        // $movie->phim_hot = $data['phim_hot'];
+        // $movie->slug = $data['slug'];
+        // $movie->description = $data['description'];
+        // $movie->status = $data['status'];
+        // $movie->category_id = $data['category_id'];
+        // $movie->genre_id = $data['genre_id'];
+        // $movie->country_id = $data['country_id'];
+        // $movie->ngaycapnhat = Carbon::now('Asia/Ho_Chi_Minh');
 
-        //them anh
-        $get_image = $request->file('image');
+        // //them anh
+        // $get_image = $request->file('image');
         
-        if($get_image){
-            if(file_exists('uploads/movie/'.$movie->image)){
-                unlink('uploads/movie/'.$movie->image);
-            }else{
-                $get_name_image = $get_image->getClientOriginalName();
-                $name_image = current(explode('.',$get_name_image));
-                $new_image = $name_image.rand(0,9999).'.'.$get_image->getClientOriginalExtension();
-                $get_image->move('uploads/movie/',$new_image);
-                $movie->image = $new_image;
-            }
-        }
-        $movie->save();
-        return redirect()->back();
+        // if($get_image){
+        //     if(file_exists('uploads/movie/'.$movie->image)){
+        //         unlink('uploads/movie/'.$movie->image);
+        //     }else{
+        //         $get_name_image = $get_image->getClientOriginalName();
+        //         $name_image = current(explode('.',$get_name_image));
+        //         $new_image = $name_image.rand(0,9999).'.'.$get_image->getClientOriginalExtension();
+        //         $get_image->move('uploads/movie/',$new_image);
+        //         $movie->image = $new_image;
+        //     }
+        // }
+        // $movie->save();
+        // return redirect()->back();
     }
 
     /**
