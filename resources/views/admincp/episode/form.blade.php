@@ -25,12 +25,12 @@
                         </div>   
                         
                         <div class="form-group">
-                            {!! Form::label('linkphim', 'Link Phim', []) !!}
-                            {!! Form::text('linkphim', isset($episode)? $episode->linkphim : '', ['class'=> 'form-control', 'placeholder' => 'Nhập link phim' ]) !!}
+                            {!! Form::label('link', 'Link Phim', []) !!}
+                            {!! Form::text('link', isset($episode)? $episode->linkphim : '', ['class'=> 'form-control', 'placeholder' => 'Nhập link phim' ]) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('linkphim', 'Tập Phim', []) !!}
+                            {!! Form::label('episode', 'Tập Phim', []) !!}
 
                             <select name="episode" class="form-control" id="episode">
                                 
