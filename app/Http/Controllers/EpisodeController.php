@@ -15,7 +15,9 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        //
+        $list_episode = Episode::with('movie')->orderBy("movie_id","desc")->get();
+        // return response()->json($list_episode);
+        return view('admincp.episode.index', compact('list_episode'));
     }
 
     /**

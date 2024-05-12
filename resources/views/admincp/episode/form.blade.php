@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <a href="{{route('movie.index')}}" class="btn btn-primary">Liệt kê tập phim</a>
+                <a href="{{route('episode.index')}}" class="btn btn-primary">Liệt kê tập phim</a>
                 <div class="card-header">{{ __('Quản lý tập phim') }}</div>
 
                 <div class="card-body">
