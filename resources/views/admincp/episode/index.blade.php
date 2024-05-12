@@ -17,7 +17,7 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tên Phim</th>
-                    <th scope="col">Tập Phim</th>
+                    <th scope="col">Hình ảnh Phim</th>
                     <th scope="col">Link Phim</th>
                     <!-- <th scope="col">Trạng Thái</th> -->
                     <th scope="col">Mange</th>
@@ -30,15 +30,10 @@
                         <tr>
                             <th scope="row">{{$key}}</th>
                             <td>{{$episode->movie->title}}</td>
+                            <td><img width="30%" src="{{asset('uploads/movie/'.$episode->movie->image)}}"></td>
                             <td>{{$episode->episode}}</td>
-                            <td>{{!!$episode->linkphim!!}}</td>
-                            <!-- <td>
-                                @if($episode->status)
-                                    Hiển thị
-                                @else
-                                    Không hiển thị
-                                @endif
-                            </td> -->
+                            <td style="width: 20%">{!!$episode->linkphim!!}</td>
+                           
                             <td>
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['episode.destroy', $episode->id], 'onsubmit' => 'return confirm("Bạn chắc chắn muốn xóa?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}

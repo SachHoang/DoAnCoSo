@@ -30,12 +30,11 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('episode', 'Tập Phim', []) !!}
+                            {!! Form::label('episode', 'Tập phim', []) !!}
+                            {!! Form::text('episode', isset($episode)? $episode->episode : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu',isset($episode)? 'readonly' : '']) !!}
+                        </div>
 
-                            <select name="episode" class="form-control" id="episode">
-                                
-                            </select>
-                        </div>   
+                       
 
                         @if(!isset($episode))
                             {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
