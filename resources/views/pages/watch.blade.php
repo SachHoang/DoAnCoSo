@@ -17,9 +17,9 @@
        <section id="content" class="test">
           <div class="clearfix wrap-content">
 
-            @foreach($movie->episode as $ep)
-               {!! $ep->linkphim!!}
-            @endforeach
+            
+               {!! $episode->linkphim!!}
+            
             
          
              <!-- <div class="button-watch">

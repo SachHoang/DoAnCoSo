@@ -29,10 +29,17 @@
                             {!! Form::text('link', isset($episode)? $episode->linkphim : '', ['class'=> 'form-control', 'placeholder' => 'Nhập link phim' ]) !!}
                         </div>
 
-                        <div class="form-group">
-                            {!! Form::label('episode', 'Tập phim', []) !!}
-                            {!! Form::text('episode', isset($episode)? $episode->episode : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu',isset($episode)? 'readonly' : '']) !!}
-                        </div>
+                        @if(isset($episode))
+                            <div class="form-group">
+                                {!! Form::label('episode', 'Tập phim', []) !!}
+                                {!! Form::text('episode', isset($episode)? $episode->episode : '', ['class'=> 'form-control', 'placeholder' => 'Nhập vào dữ liệu', isset($episode)? 'readonly' : '']) !!}
+                            </div>
+                        @else
+                            <div class="form-group">
+                                {!! Form::label('episode', 'Tập phim', []) !!}
+                                <select name="episode" id="episode" class="form-control"></select>
+                            </div>
+                        @endif
 
                        
 
