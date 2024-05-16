@@ -69,6 +69,10 @@
                             {!! Form::select('category_id',$category , isset($movie)? $movie->category_id : '', ['class'=> 'form-control']) !!}                        
                         </div>
                         <div class="form-group">
+                            {!! Form::label('thuocphim', 'Thuộc thể loại phim', []) !!}
+                            {!! Form::select('thuocphim',['phimle'=>'Phim lẻ', 'phimbo'=> 'Phim bộ'], isset($movie)? $movie->thuocphim : '', ['class'=> 'form-control']) !!}                        
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('Country', 'Country', []) !!}
                             {!! Form::select('country_id',$country , isset($movie)? $movie->country_id : '', ['class'=> 'form-control']) !!}                        
                         </div>

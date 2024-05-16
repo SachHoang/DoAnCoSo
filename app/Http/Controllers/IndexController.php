@@ -117,18 +117,16 @@ class IndexController extends Controller
         $movie = Movie::with('category', 'genre', 'country','movie_genre')->where('slug', $slug)->where('status', 1)->first();
         $episode_tapdau = Episode::with('movie')->where('movie_id', $movie->id)->orderBy('episode','ASC')->take(1)->first();
         $related = Movie::with('category', 'genre', 'country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug', [$slug])->get();
+        //lay 3 tap moi nhat
         $episode = Episode::with('movie')->where('movie_id', $movie->id)->orderBy('episode', 'DESC')->take(3)->get();
+        //lay tat ca tap phim da them
+        $episode_current_list = Episode::with('movie')->where('movie_id', $movie->id)->get();
+        $episode_current_list_count = $episode_current_list->count();
 
-        return view('pages.movie', compact('category', 'genre', 'country', 'movie', 'related', 'phimhot_sidebar', 'phimhot_trailer','episode','episode_tapdau'));
+        return view('pages.movie', compact('category', 'genre', 'country', 'movie', 'related', 'phimhot_sidebar', 'phimhot_trailer','episode','episode_tapdau','episode_current_list_count'));
     }
-    public function watch($slug)
+    public function watch($slug, $tap)
     {
-        if(isset($_GET['tap-phim'])){
-            $tapphim = $_GET['tap-phim'];
-        }else{
-            $tapphim = 1;
-        }
-        $tapphim = substr($tapphim,0,9);
         
         $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
         $genre = Genre::orderBy('id', 'DESC')->get();
@@ -137,9 +135,21 @@ class IndexController extends Controller
         $phimhot_trailer = Movie::where('resolution', 5)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(3)->get();
         
         $movie = Movie::with('category', 'genre', 'country','movie_genre','episode')->where('slug', $slug)->where('status', 1)->first();
-        $episode = Episode::where('movie_id', $movie->id)->where('episode', $tapphim)->first();
+        $related = Movie::with('category', 'genre', 'country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug', [$slug])->get();
         
-        return view('pages.watch', compact('category', 'genre', 'country', 'movie', 'phimhot_sidebar', 'phimhot_trailer','episode'));
+        if(isset($tap)){
+           
+                $tapphim = $tap;
+                $tapphim = substr($tap,4,10);
+                $episode = Episode::where('movie_id', $movie->id)->where('episode', $tapphim)->first();
+            
+            
+        }else{
+            $tapphim = 1;
+            $episode = Episode::where('movie_id', $movie->id)->where('episode', $tapphim)->first();
+        }
+        
+        return view('pages.watch', compact('category', 'genre', 'country', 'movie', 'phimhot_sidebar', 'phimhot_trailer','episode','tapphim','related'));
     }
     public function episode()
     {

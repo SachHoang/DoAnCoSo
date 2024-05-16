@@ -113,10 +113,18 @@ class EpisodeController extends Controller
         echo $movie->sotap;
         $output = '<option>---Chọn tập phim---</option>';
         
-                                
-        for($i = 1; $i <= $movie->sotap; $i++){
-            $output .= '<option value="'.$i.'">'.$i.'</option>';                     
-        }
+        if($movie->thuocphim=='phimbo')  {
+            for($i = 1; $i <= $movie->sotap; $i++){
+                $output .= '<option value="'.$i.'">'.$i.'</option>';                     
+            }
+        }else{
+            $output .= '<option value="HD">HD</option>
+            <option value="FullHD">FullHD</option>
+            <option value="FullHD">Cam</option>
+            <option value="FullHD">HDCam</option>'; 
+            
+        }                     
+       
         echo $output;
     }
 }
