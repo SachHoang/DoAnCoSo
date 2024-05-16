@@ -120,7 +120,7 @@
                 </div>
              </div>
              <!--Trailer phim-->
-            
+            @if($movie->trailer!=NULL)
              <div class="section-bar clearfix">
                 <h2 class="section-title"><span style="color:#ffed4d">Trailer phim</span></h2>
              </div>
@@ -131,7 +131,9 @@
                    </article>
                 </div>
              </div>
+             @endif
           </div>
+
             <!--Tags phim-->
              <div class="section-bar clearfix">
                 <h2 class="section-title"><span style="color:#ffed4d">Tags phim</span></h2>

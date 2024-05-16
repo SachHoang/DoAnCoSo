@@ -6,6 +6,10 @@
     #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
     html>body #sortable li { height: 1.5em; line-height: 1.2em; }
     .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+    .diff iframe {
+        width: 100%;
+        height: 15%;
+    }
 </style>
 
 <div class="container">
@@ -32,7 +36,7 @@
                             <td>{{$episode->movie->title}}</td>
                             <td><img width="30%" src="{{asset('uploads/movie/'.$episode->movie->image)}}"></td>
                             <td>{{$episode->episode}}</td>
-                            <td style="width: 20%">{!!$episode->linkphim!!}</td>
+                            <td class="diff">{!!$episode->linkphim!!}</td>
                            
                             <td>
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['episode.destroy', $episode->id], 'onsubmit' => 'return confirm("Bạn chắc chắn muốn xóa?")']) !!}
