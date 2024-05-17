@@ -4,13 +4,14 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            
-            <table class="table" id = "tablephim">
-                <a href="{{route('movie.create')}}" class="btn btn-primary">Thêm phim</a>
+            <a href="{{route('movie.create')}}" class="btn btn-primary">Thêm phim</a>
+            <table class="table table-responsive" id = "tablephim">
+                
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tên phim</th>
+                    <th scope="col">Tập phim</th>
                     <th scope="col">Số Tập</th>
                     <th scope="col">Thời lượng phim</th>
                     <th scope="col">Hình ảnh</th>
@@ -38,6 +39,7 @@
                         <tr>
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate->title}}</td>
+                            <td><a href="{{route('add-episode', [$cate->id])}}" class="btn btn-success btn-sm">Thêm tập phim</a></td>
                             <td>{{$cate->sotap}}</td>
                             <td>{{$cate->thoiluong}}</td>
                             <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>

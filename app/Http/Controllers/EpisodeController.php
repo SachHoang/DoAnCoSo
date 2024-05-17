@@ -50,6 +50,14 @@ class EpisodeController extends Controller
         return redirect()->back();
     }
 
+
+    public function add_episode($id){
+        $movie = Movie::find($id);
+        $list_episode = Episode::with('movie')->where('movie_id', $id)->orderBy('episode','DESC')->get();
+        // return response()->json($list_episode);
+        return view('admincp.episode.add_episode', compact('list_episode','movie'));
+    }
+
     /**
      * Display the specified resource.
      *
