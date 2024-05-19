@@ -17,6 +17,7 @@
                <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" title="{{$hot->title}}">
                   <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$hot->image)}}" alt="{{$hot->title}}" title="{{$hot->title}}"></figure>
                   <span class="status">
+                     
                      @if($hot->resolution == 0)
                         HD
                      @elseif($hot->resolution == 1)
@@ -31,6 +32,7 @@
                         Trailer
                      @endif
                   </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                     {{$hot->episode_count}}/{{$hot->sotap}}
                      @if($hot->phude == 0)
                            Vietsub
                               @if($hot->season != 0)
@@ -123,15 +125,16 @@
                            Trailer
                         @endif
                      </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                        {{$mov->episode_count}}/{{$mov->sotap}}
                         @if($mov->phude == 0)
                            Vietsub
                               @if($mov->season != 0)
-                                 - Season {{$mov->season}}
+                                  Season {{$mov->season}}
                               @endif
                         @else
                            Thuyết Minh
                            @if($mov->season != 0)
-                                 - Season {{$mov->season}}
+                                  Season {{$mov->season}}
                               @endif
                         @endif
                      

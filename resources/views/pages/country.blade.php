@@ -42,11 +42,13 @@
                         @endif
                         </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                         @if($mov->phude == 0)
+                        {{$mov->episode_count}}/{{$mov->sotap}}
                            Vietsub
                               @if($mov->season != 0)
                                  - Season {{$mov->season}}
                               @endif
                         @else
+                        {{$mov->episode_count}}/{{$mov->sotap}}
                            Thuyết Minh
                         @endif
                         </span> 
