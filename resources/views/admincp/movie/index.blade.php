@@ -40,7 +40,7 @@
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate->title}}</td>
                             <td><a href="{{route('add-episode', [$cate->id])}}" class="btn btn-success btn-sm">Thêm tập phim</a></td>
-                            <td>{{$cate->sotap}}</td>
+                            <td>{{$cate->episode_count}}/{{$cate->sotap}}</td>
                             <td>{{$cate->thoiluong}}</td>
                             <td><img width="50%" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                             <td>

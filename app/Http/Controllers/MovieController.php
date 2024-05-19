@@ -23,8 +23,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $list = Movie::with('category','movie_genre','country','genre')->orderBy('id','DESC')->get();
-
+        $list = Movie::with('category','movie_genre','country','genre')->withCount('episode')->orderBy('id','DESC')->get();
+        //Trả về file json để tìm kiếm tên phim
         $path = public_path()."/json/";
         if(!is_dir($path)) { mkdir($path, 0777, true); }
         File::put($path.'movies.json', json_encode($list));

@@ -16,7 +16,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             
-            <table class="table table-responsive" id = "tablephim">
+            <table class="table table-responsive">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
