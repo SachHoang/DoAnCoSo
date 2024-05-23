@@ -29,7 +29,7 @@
                     <th scope="col">Season</th>
                     <th scope="col">Top View</th>
                     <th scope="col">Đường dẫn</th>
-                    <th scope="col">Tags</th>
+                    <!-- <th scope="col">Tags</th> -->
                     <th scope="col">Trạng thái</th>
                     <th scope="col">Quản lý</th>
                   </tr>
@@ -93,7 +93,7 @@
                             <td>{{$cate->ngaycapnhat}}</td>
                             <td>
                                 
-                                {!! Form::selectYear('year', 2000, 2024, isset($cate->year) ? $cate->year : '', ['class' => 'select-year', 'id' => $cate->id]) !!}
+                                {!! Form::selectYear('year', 2000, 2024, isset($cate->year) ? $cate->year : '', ['class' => 'select-year', 'id' => $cate->id,'placeholder' => '--Năm phim--']) !!}
                                 </form>
                             </td>
                             <td>
@@ -102,11 +102,11 @@
                             </td>
                             <td>
                                 {!! Form::select('topview', ['0'=>'Ngày', '1'=> 'Tuần', '2'=>'Tháng'], isset($cate->topview) ? $cate->topview : '', ['class'=> 
-                                'select-topview', 'id' => $cate->id]) !!}                        
+                                'select-topview', 'id' => $cate->id, 'placeholder' => '--Views--']) !!}                        
 
                             </td>
                             <td>{{$cate->slug}}</td>
-                            <td>{{$cate->tags}}</td>
+                            <!-- <td>{{$cate->tags}}</td> -->
                             <td>
                                 @if($cate->status)
                                     Hiển thị

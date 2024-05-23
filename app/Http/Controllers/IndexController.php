@@ -13,6 +13,38 @@ use DB;
 
 class IndexController extends Controller
 {
+    public function locphim(){
+       
+        $sapxep =$_GET['order'];
+        $genre_get =$_GET['genre'];
+        $country_get =$_GET['country'];
+        $year_get =$_GET['year'];
+        if($sapxep == '' && $genre_get == '' && $country_get == '' && $year_get ==''){
+           
+            return redirect()->back();
+    
+        }else{
+            $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
+            $genre = Genre::orderBy('id', 'DESC')->get();
+            $country = Country::orderBy('id', 'DESC')->get();
+            $phimhot_sidebar = Movie::where('phim_hot', 1)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(6)->get();
+            $phimhot_trailer = Movie::where('resolution', 5)->where('status', 1)->orderBy('ngaycapnhat', 'DESC')->take(3)->get();
+            $movie = Movie::withCount('episode');
+            if($genre_get){
+                $movie = $movie->where('genre_id','=',$genre_get);
+            }elseif($country_get){
+                $movie = $movie->where('country_id','=',$country_get);
+            }elseif($year_get){
+                $movie = $movie->where('year','=',$year_get);
+            }elseif($order){
+                $movie = $movie->orderBy('title','ASC');
+            }
+            $movie = $movie->orderBy('ngaycapnhat', 'DESC')->paginate(40);
+            return view('pages.locphim', compact('category', 'genre', 'country', 'movie', 'phimhot_sidebar', 'phimhot_trailer'));
+           
+        }
+    }
+        
     public function timkiem()
     {
         if (isset($_GET['search'])) {

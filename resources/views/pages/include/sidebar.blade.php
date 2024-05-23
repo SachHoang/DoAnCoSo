@@ -121,23 +121,7 @@
       </div>
       <div class="tab-pane fade show active" id="tuan" role="tabpanel" aria-labelledby="pills-home-tab">
          <div id="halim-ajax-popular-post" class="popular-post">
-            {{-- 
-            <div class="item post-37176">
-               <a href="chitiet.php" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ">
-                  <div class="item-link">
-                     <img src="https://ghienphim.org/uploads/GPax0JpZbqvIVyfkmDwhRCKATNtLloFQ.jpeg?v=1624801798" class="lazy post-thumb" alt="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" />
-                     <span class="is_trailer">Trailer</span>
-                  </div>
-                  <p class="title">CHỊ MƯỜI BA: BA NGÀY SINH TỬ</p>
-               </a>
-               <div class="viewsCount" style="color: #9d9d9d;">3.2K lượt xem</div>
-               <div style="float: left;">
-                  <span class="user-rate-image post-large-rate stars-large-vang" style="display: block;/* width: 100%; */">
-                  <span style="width: 0%"></span>
-                  </span>
-               </div>
-            </div>
-            --}}
+           
             <span id ="show_data"></span>
          </div>
       </div>

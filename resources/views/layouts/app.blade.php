@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -78,7 +78,7 @@
         </nav>
         <main class="py-4">
             @if(Auth::id())
-                <div class="container">
+                <div class="container-fluid">
                     @include('layouts.navbar')
                 </div> 
             @endif

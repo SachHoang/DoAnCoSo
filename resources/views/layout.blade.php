@@ -87,8 +87,7 @@
                   <span class="count">0</span>
                   </button>
                   <button type="button" class="navbar-toggle collapsed pull-right get-locphim-on-mobile">
-                  <a href="javascript:;" id="expand-ajax-filter" style="color: #ffed4d;">Lọc <i class="fas fa-filter"></i></a>
-                  </button>
+                 
                </div>
                <div class="collapse navbar-collapse" id="halim">
                   <div class="menu-menu_1-container">
@@ -123,9 +122,7 @@
                         @endforeach                       
                      </ul>
                   </div>
-                  <ul class="nav navbar-nav navbar-left" style="background:#000;">
-                     <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
-                  </ul>
+                 
                </div>
             </nav>
             <div class="collapse navbar-collapse" id="search-form">
