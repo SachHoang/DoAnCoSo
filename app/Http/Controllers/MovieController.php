@@ -185,7 +185,7 @@ class MovieController extends Controller
         $movie->save();
         //them nhieu the loai cho phim
         $movie->movie_genre()->attach($data['genre']);
-        
+        toastr()->success('Thành Công !','Thêm phim phim thành công.');
         return redirect()->route('movie.index');
     }
 
@@ -265,7 +265,7 @@ class MovieController extends Controller
         }
         $movie->save();
         $movie->movie_genre()->sync($data['genre']);
-
+        toastr()->success('Thành Công !','Cập nhật  phim phim thành công.');
         return redirect()->route('movie.index');
     }
 
@@ -291,7 +291,7 @@ class MovieController extends Controller
         //xoa tap phim
         Episode::whereIn('movie_id', [$movie->id])->delete();
         $movie->delete();
-
+        toastr()->success('Thành Công !','Xóa phim phim thành công.');
         return redirect()->back();
     }
 }

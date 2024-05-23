@@ -42,6 +42,7 @@ class GenreController extends Controller
         $genre->description = $data['description'];
         $genre->status = $data['status'];
         $genre->save();
+        toastr()->success('Thành Công !','Thêm thể loại thành công.');
         return redirect()->back();
     }
 
@@ -85,6 +86,7 @@ class GenreController extends Controller
         $genre->description = $data['description'];
         $genre->status = $data['status'];
         $genre->save();
+        toastr()->success('Thành Công !','Cập nhật thể loại thành công.');
         return redirect()->back();
     }
 
@@ -97,6 +99,7 @@ class GenreController extends Controller
     public function destroy($id)
     {
         Genre::find($id)->delete();
+        toastr()->success('Thành Công !','Xóa thể loại thành công.');
         return redirect()->back();
     }
 }

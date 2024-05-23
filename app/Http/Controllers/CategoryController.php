@@ -42,7 +42,9 @@ class CategoryController extends Controller
         $category->description = $data['description'];
         $category->status = $data['status'];
         $category->save();
+        toastr()->success('Thành Công !','Thêm danh mục phim thành công.');
         return redirect()->back();
+       
     }
 
     /**
@@ -85,6 +87,7 @@ class CategoryController extends Controller
         $category->description = $data['description'];
         $category->status = $data['status'];
         $category->save();
+        toastr()->success('Thành Công !','Cập nhật danh mục phim thành công.');
         return redirect()->back();
     }
 
@@ -97,6 +100,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::find($id)->delete();
+        toastr()->success('Thành Công !','Xóa danh mục phim thành công.');
         return redirect()->back();
     }
 }

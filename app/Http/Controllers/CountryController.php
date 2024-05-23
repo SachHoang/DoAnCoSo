@@ -42,6 +42,7 @@ class CountryController extends Controller
         $country->description = $data['description'];
         $country->status = $data['status'];
         $country->save();
+        toastr()->success('Thành Công !','Thêm quốc gia thành công.');
         return redirect()->back();
     }
 
@@ -85,6 +86,7 @@ class CountryController extends Controller
         $country->description = $data['description'];
         $country->status = $data['status'];
         $country->save();
+        toastr()->success('Thành Công !','Cạp nhật quốc gia thành công.');
         return redirect()->back();
     }
 
@@ -97,6 +99,7 @@ class CountryController extends Controller
     public function destroy($id)
     {
         Country::find($id)->delete();
+        toastr()->success('Thành Công !','Xóa quốc gia thành công.');
         return redirect()->back();
     }
 }

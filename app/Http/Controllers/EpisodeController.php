@@ -51,6 +51,7 @@ class EpisodeController extends Controller
             $ep->episode = $data['episode'];
             $ep->created_at = Carbon::now('Asia/Ho_Chi_Minh');
             $ep->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
+            toastr()->success('Thành Công !','Thêm tập phim thành công.');
             $ep->save();
         }
         
@@ -106,6 +107,7 @@ class EpisodeController extends Controller
         $ep->created_at = Carbon::now('Asia/Ho_Chi_Minh');
         $ep->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
         $ep->save();
+        toastr()->success('Thành Công !','Cập nhật tập phim thành công.');
         return redirect()->route('episode.index');
     }
 
@@ -118,7 +120,7 @@ class EpisodeController extends Controller
     public function destroy($id)
     {
         $episode = Episode::find($id)->delete();
-    
+        toastr()->success('Thành Công !','Xóatập phim  thành công.');
         return redirect()->route('episode.index');
     }
 
