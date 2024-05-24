@@ -544,13 +544,19 @@
                            </a>
                            <ul class="dropdown-menu drp-mnu">
                               <li>
+                                <form action="#">
                                  <a href="#"><i class="fa fa-cog"></i> Settings</a>
+                                </form>
                               </li>
                               <li>
+                                <form action="#">
                                  <a href="#"><i class="fa fa-user"></i> My Account</a>
+                                </form>
                               </li>
                               <li>
+                                <form>
                                  <a href="#"><i class="fa fa-suitcase"></i> Profile</a>
+                                </form>
                               </li>
                               <li>
                                  {{-- <a href="#"><i class="fa fa-sign-out"></i> Logout</a> --}}
