@@ -13,7 +13,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $list = Genre::all();
+        return view('admincp.genre.index', compact('list'));
     }
 
     /**
@@ -23,8 +24,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        $list = Genre::all();
-        return view('admincp.genre.form', compact('list'));
+        return view('admincp.genre.form');
     }
 
     /**
@@ -43,7 +43,7 @@ class GenreController extends Controller
         $genre->status = $data['status'];
         $genre->save();
         toastr()->success('Thành Công !','Thêm thể loại thành công.');
-        return redirect()->back();
+        return redirect()->route('genre.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class GenreController extends Controller
         $genre->status = $data['status'];
         $genre->save();
         toastr()->success('Thành Công !','Cập nhật thể loại thành công.');
-        return redirect()->back();
+        return redirect()->route('genre.index');
     }
 
     /**

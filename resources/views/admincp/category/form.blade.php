@@ -51,7 +51,7 @@
                     
                 </div>
             </div>
-            <table class="table" id = "tablephim">
+            {{-- <table class="table" id = "tablephim">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -86,7 +86,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-              </table>
+            </table> --}}
         </div>
     </div>
 </div>

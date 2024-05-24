@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $list = Category::all();
+        return view('admincp.category.index', compact('list'));
     }
 
     /**
@@ -22,9 +23,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $list = Category::all();
-        return view('admincp.category.form', compact('list'));
+    {       
+        return view('admincp.category.form');
     }
 
     /**
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $category->status = $data['status'];
         $category->save();
         toastr()->success('Thành Công !','Thêm danh mục phim thành công.');
-        return redirect()->back();
+        return redirect()->route('category.index');
        
     }
 
@@ -88,7 +88,7 @@ class CategoryController extends Controller
         $category->status = $data['status'];
         $category->save();
         toastr()->success('Thành Công !','Cập nhật danh mục phim thành công.');
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     /**

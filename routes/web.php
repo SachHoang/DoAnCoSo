@@ -43,9 +43,10 @@ Route::resource('category', CategoryController::class);
 Route::resource('genre', GenreController::class);
 Route::resource('country', CountryController::class);
 Route::resource('movie', MovieController::class);
+Route::resource('episode', EpisodeController::class);
 //them tap phim
 
-Route::resource('episode', EpisodeController::class);
+
 Route::get('select-movie', [EpisodeController::class, 'select_movie'])->name('select-movie');
 Route::get('add-episode/{id}', [EpisodeController::class, 'add_episode'])->name('add-episode');
 
