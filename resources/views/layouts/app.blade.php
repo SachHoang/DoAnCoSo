@@ -147,7 +147,7 @@
                         <span class="icon-bar"></span>
                         </button>
                         <h1>
-                           <a class="navbar-brand" href="{{url('/home')}}"
+                           <a class="navbar-brand" href="{{url('/')}}"
                               ><span class="fa fa-area-chart"></span> Glance<span
                               class="dashboard_text"
                               >Design dashboard</span
