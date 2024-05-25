@@ -100,7 +100,7 @@
       @foreach ($category_home as $key => $cate_home)
        <section id="halim-advanced-widget-2">
           <div class="section-heading">
-             <a href="danhmuc.php" title="Phim Bộ">
+             <a href="{{route('category', $cate_home->slug)}}" title="Phim Bộ">
              <span class="h-text">{{$cate_home->title}}</span>
              </a>
           </div>
