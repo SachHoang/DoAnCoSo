@@ -78,10 +78,14 @@
 
                {!! $movie->links("pagination::bootstrap-4") !!}
              </div>
+             <div class="clearfix"></div>
           </section>
        </main>
         <!--sidebar-->
+
        @include('pages.include.sidebar')
+       
     </div>
+    
  </div>
  @endsection

@@ -37,14 +37,20 @@
          width: 100%;
          }
       </style>
-      <style>#header .site-title {background: url(https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png) no-repeat top left;background-size: contain;text-indent: -9999px;}</style>
+      <style>#header 
+      .site-title {background: url(https://png.pngtree.com/template/20200328/ourmid/pngtree-movie-maker-theater-camera-vector-logo-image_359292.jpg) 
+                  no-repeat top left;
+                  background-size: contain;
+                  text-indent: -9999px;}
+                  
+      </style>
    </head>
    <body class="home blog halimthemes halimmovies" data-masonry="">
       <header id="header">
          <div class="container">
             <div class="row" id="headwrap">
                <div class="col-md-3 col-sm-6 slogan">
-                  <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</p>
+                  <p class="site-title"><a class="logo" href="{{url('/')}}" title="phim hay ">Phim Hay</p>
                   </a>
                </div>
                <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
@@ -60,12 +66,7 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-4 hidden-xs">
-                  <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
-                  <div id="bookmark-list" class="hidden bookmark-list-on-pc">
-                     <ul style="margin: 0;"></ul>
-                  </div>
-               </div>
+               
             </div>
          </div>
       </header>
@@ -82,10 +83,7 @@
                   <button type="button" class="navbar-toggle collapsed pull-right expand-search-form" data-toggle="collapse" data-target="#search-form" aria-expanded="false">
                   <span class="hl-search" aria-hidden="true"></span>
                   </button>
-                  <button type="button" class="navbar-toggle collapsed pull-right get-bookmark-on-mobile">
-                  Bookmarks<i class="hl-bookmark" aria-hidden="true"></i>
-                  <span class="count">0</span>
-                  </button>
+                  
                   <button type="button" class="navbar-toggle collapsed pull-right get-locphim-on-mobile">
                  
                </div>
@@ -146,9 +144,9 @@
             <div class="row container">
                <div class="widget about col-xs-12 col-sm-4 col-md-4">
                   <div class="footer-logo">
-                     <img class="img-responsive" src="https://img.favpng.com/9/23/19/movie-logo-png-favpng-nRr1DmYq3SNYSLN8571CHQTEG.jpg" alt="Phim hay 2021- Xem phim hay nhất" />
+                     <img class="img-responsive" src="https://png.pngtree.com/template/20200328/ourmid/pngtree-movie-maker-theater-camera-vector-logo-image_359292.jpg" alt="Phim hay 2021- Xem phim hay nhất" />
                   </div>
-                  Liên hệ QC: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[email&#160;protected]</a>
+                  Liên hệ QC: <a href="#" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[webphim@gmail.com]</a>
                </div>
             </div>
          </div>
