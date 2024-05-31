@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <a href="{{route('movie.create')}}" class="btn btn-primary">Thêm phim</a>
-            <div class="table-container">
+            <div class="table-container" style="overflow-x: auto;">
                 <table class="table" id = "tablephim">
                 
                     <thead>
@@ -131,3 +132,5 @@
     </div>
 </div>
 @endsection
+
+

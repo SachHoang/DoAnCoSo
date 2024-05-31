@@ -31,6 +31,7 @@
       <link rel='stylesheet' id='bootstrap-css' href='{{asset('css/bootstrap.min.css?ver=5.7.2')}}' media='all' />
       <link rel='stylesheet' id='style-css' href='{{asset('css/style.css?ver=5.7.2')}}' media='all' />
       <link rel='stylesheet' id='wp-block-library-css' href='{{asset('css/style.min.css?ver=5.7.2')}}' media='all' />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <script type='text/javascript' src='{{asset('js/jquery.min.js?ver=5.7.2')}}' id='halim-jquery-js'></script>
       <style type="text/css" id="wp-custom-css">
          .textwidget p a img {
@@ -38,10 +39,11 @@
          }
       </style>
       <style>#header 
-      .site-title {background: url(https://png.pngtree.com/template/20200328/ourmid/pngtree-movie-maker-theater-camera-vector-logo-image_359292.jpg) 
-                  no-repeat top left;
-                  background-size: contain;
-                  text-indent: -9999px;}
+      .site-title { display: block;
+         width: 100%;
+         height: 75px;
+       background-size: cover;
+   }
                   
       </style>
    </head>
@@ -50,14 +52,16 @@
          <div class="container">
             <div class="row" id="headwrap">
                <div class="col-md-3 col-sm-6 slogan">
-                  <p class="site-title"><a class="logo" href="{{url('/')}}" title="phim hay ">Phim Hay</p>
+                  <a href="{{url('/')}}" >
+                     <img class="site-title"src="{{ asset('imgs/logo01.png') }}" alt="Logo">
                   </a>
+               
                </div>
-               <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
+               <div class="col-md-7 col-sm-6 halim-search-form hidden-xs">
                   <div class="header-nav">
                      <div class="col-xs-12">
                         <form action="{{route('tim-kiem')}}" method="GET">
-                              <div class="input-group col-xs-12">
+                              <div class="input-group col-xs-12" style="display: flex; gap: 10px;">
                                  <input id="timkiem" type="text" name="search" class="form-control" placeholder="Tìm kiếm..." autocomplete="off">
                                  <button class="btn btn-primary">Tìm Kiếm</button>
                               </div>
@@ -124,7 +128,9 @@
                </div>
             </nav>
             <div class="collapse navbar-collapse" id="search-form">
-               <div id="mobile-search-form" class="halim-search-form"></div>
+               <div id="mobile-search-form" class="halim-search-form">
+
+               </div>
             </div>
             <div class="collapse navbar-collapse" id="user-info">
                <div id="mobile-user-login"></div>
@@ -144,7 +150,7 @@
             <div class="row container">
                <div class="widget about col-xs-12 col-sm-4 col-md-4">
                   <div class="footer-logo">
-                     <img class="img-responsive" src="https://png.pngtree.com/template/20200328/ourmid/pngtree-movie-maker-theater-camera-vector-logo-image_359292.jpg" alt="Phim hay 2021- Xem phim hay nhất" />
+                     <img class="img-responsive" src="{{asset('imgs/logo phim của đệ-01.png')}}" alt="Phim hay 2021- Xem phim hay nhất" />
                   </div>
                   Liên hệ QC: <a href="#" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[webphim@gmail.com]</a>
                </div>

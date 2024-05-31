@@ -148,7 +148,7 @@
                         </button>
                         <h1>
                            <a class="navbar-brand" href="{{url('/')}}"
-                              ><span class="fa fa-area-chart"></span> Nhóm 8<span
+                              ><span class="fa fa-area-chart"></span> Nhóm 4<span
                               class="dashboard_text"
                               >Design dashboard</span
                               ></a
